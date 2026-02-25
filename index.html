@@ -8,28 +8,46 @@
 </head>
 <body>
     <main class="main-content">
-        <form action="" id="formulario">
-            <label for="descripcion">Descripción</label>
-            <input type="text" name="descripcion" id="descripcion" required>
-            <label for="gasto">Gasto</label>
-            <input type="number" name="gasto" id="gasto" required>
-            <label for="categoria">Categoria</label>
-            <select name="categoria" id="categoria" >
-                <option value="comida">Comida</option>
-                <option value="ropa">Ropa</option>
-                <option value="uber">Uber</option>
-                <option value="mc">mcdonals</option>
-                <option value="otro">Otro</option>
-            </select>
-            <label for="fecha">Fecha</label>
-            <input type="datetime-local" name="fecha" id="fecha" required>
-            <button type="submit">enviar</button>
-        </form>
-        <h2>Total General: $<span id="total">0</span></h2>
-        <ul id="lista-gastos"></ul>
-    
+
+        <div class="app-container">
+
+            <div class="panel-izquierdo">
+                <form id="formulario">
+                    <label>Descripción</label>
+                    <input type="text" name="descripcion" required>
+
+                    <label>Gasto</label>
+                    <input type="number" name="gasto" required>
+
+                    <label>Categoria</label>
+                    <select name="categoria">
+                        <option value="comida">Comida</option>
+                        <option value="ropa">Ropa</option>
+                        <option value="uber">Uber</option>
+                        <option value="mc">McDonalds</option>
+                        <option value="otro">Otro</option>
+                    </select>
+
+                    <label>Fecha</label>
+                    <input type="datetime-local" name="fecha" required>
+
+                    <button type="submit">Enviar</button>
+                </form>
+
+                <h2>Total General: $<span id="total">0</span></h2>
+
+                <div id="lista-gastos"></div>
+            </div>
+
+            <div class="panel-derecho">
+                <canvas id="grafico"></canvas>
+            </div>
+
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
         <script src="script.js"></script>
+
     </main>
-    
 </body>
 </html>

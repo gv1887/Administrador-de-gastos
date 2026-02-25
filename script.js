@@ -1,8 +1,57 @@
 let gastos = JSON.parse(localStorage.getItem("gastos")) || []
 const formulario = document.getElementById("formulario")
 const lista = document.getElementById("lista-gastos")
+let chart;
 
+function renderChart() {
 
+    let categorias = {};
+
+    gastos.forEach(function(gasto) {
+        if (!categorias[gasto.categoria]) {
+            categorias[gasto.categoria] = 0;
+        }
+        categorias[gasto.categoria] += gasto.gasto;
+    });
+
+    const labels = Object.keys(categorias);
+    const data = Object.values(categorias);
+
+    const ctx = document.getElementById("grafico").getContext("2d");
+
+    if (chart) {
+        chart.destroy();
+    }
+
+  chart = new Chart(ctx, {
+    type: "doughnut",
+    data: {
+        labels: labels,
+        datasets: [{
+            data: data,
+            backgroundColor: [
+                "#6c63ff",
+                "#ff6384",
+                "#36a2eb",
+                "#ffce56",
+                "#4bc0c0"
+            ]
+        }]
+    },
+    options: {
+        responsive: true,
+        maintainAspectRatio: true,
+        cutout: "60%",
+        plugins: {
+            legend: {
+                labels: {
+                    color: "white"
+                }
+            }
+        }
+    }
+});
+}
 function render() {
     lista.innerHTML = "";
     let totalGeneral = 0;
@@ -57,6 +106,7 @@ function render() {
         lista.appendChild(totalCat);
     }
     document.getElementById("total").textContent = totalGeneral;
+    renderChart();
 }
 
 formulario.addEventListener("submit",function(e){
@@ -80,6 +130,7 @@ formulario.addEventListener("submit",function(e){
 })
 
 render()
+
  
 
 

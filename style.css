@@ -19,7 +19,7 @@ body {
   padding: 30px;
   border-radius: 16px;
   width: 100%;
-  max-width: 600px;
+  max-width: 700px;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
 }
 
@@ -69,11 +69,16 @@ button:hover {
   transform: translateY(-2px);
 }
 
+h2 {
+  margin-bottom: 20px;
+}
+
 #lista-gastos {
   list-style: none;
   display: flex;
   flex-direction: column;
   gap: 10px;
+  margin-bottom: 30px; 
 }
 
 #lista-gastos li {
@@ -94,15 +99,18 @@ button:hover {
 
 #lista-gastos button {
   background: #ff4d4d;
-  border: none;
   padding: 6px 10px;
   border-radius: 6px;
-  color: white;
-  cursor: pointer;
   font-size: 0.8rem;
-  transition: 0.2s ease;
 }
 
 #lista-gastos button:hover {
   background: #ff1a1a;
+}
+
+canvas {
+  width: 100% !important;
+  max-width: 400px;
+  margin: 0 auto;
+  display: block;
 }
