@@ -91,3 +91,18 @@ button:hover {
   background: #4a4a75;
   transform: scale(1.02);
 }
+
+#lista-gastos button {
+  background: #ff4d4d;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 6px;
+  color: white;
+  cursor: pointer;
+  font-size: 0.8rem;
+  transition: 0.2s ease;
+}
+
+#lista-gastos button:hover {
+  background: #ff1a1a;
+}
